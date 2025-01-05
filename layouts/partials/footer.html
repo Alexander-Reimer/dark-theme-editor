@@ -33,16 +33,16 @@
             {{ with $.Site.Params.footer.counter }}
                 <li>
                     {{ if $.IsPage }}
-                        Word Count:
+                        {{ $.Site.Params.footer.counterWordcountStr }}
                         {{ $.WordCount }}
                     {{ else if $.IsSection }}
                         Pages In Section:
                         {{ len (where $.Pages "Params.hidden" "!=" true) }}
                     {{ else if $.IsHome }}
-                        Pages:
+                        {{ $.Site.Params.footer.counterPagesStr }}
                         {{ len (where $.Site.RegularPages "Params.hidden" "!=" true) }}
                     {{ else if $.IsNode }}
-                        Pages:
+                        {{ $.Site.Params.footer.counterPagesStr }}
                         {{ len (where $.Pages "Params.hidden" "!=" true) }}
                     {{ end }}
                 </li>
