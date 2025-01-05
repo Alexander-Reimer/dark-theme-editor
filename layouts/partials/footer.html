@@ -36,7 +36,7 @@
                         {{ $.Site.Params.footer.counterWordcountStr }}
                         {{ $.WordCount }}
                     {{ else if $.IsSection }}
-                        Pages In Section:
+                        {{ $.Site.Params.footer.counterPagesInSectionStr }}
                         {{ len (where $.Pages "Params.hidden" "!=" true) }}
                     {{ else if $.IsHome }}
                         {{ $.Site.Params.footer.counterPagesStr }}
