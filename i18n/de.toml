@@ -1,0 +1,37 @@
+
+# The "recent posts" show in home page
+recent_posts = 'Aktuelle Posts'
+
+# The "Walkthroughs" show in home page
+walkthroughs = 'Übersicht' # TODO
+
+# Hint text of page meta data related icons
+author = 'Autor'
+date = 'Datum'
+time_to_read = 'Lesedauer'
+
+# Hint text to indicate an empty page
+empty_page = 'Kein Inhalt auf dieser Seite.'
+
+# Title of a terms page
+all_about = 'all about'
+
+# Hint text to show for language menu icon
+language = 'Sprache'
+
+# The "Home" shown in breadcrumb root
+breadcrumb_home = 'Startseite'
+
+# Hint text of related icons of a content
+[category]
+    one = 'Kategorie'
+    other = 'Kategorien'
+
+[tag]
+    one = 'Tag'
+    other = 'Tags'
+
+# Time of minutes to read a page
+[min_to_read]
+    one = '{{ . }} Minute Lesedauer'
+    other = '{{ . }} Minuten Lesedauer'
