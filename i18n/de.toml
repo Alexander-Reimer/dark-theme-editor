@@ -1,6 +1,6 @@
 
 # The "recent posts" show in home page
-recent_posts = 'Aktuelle Posts'
+recent_posts = 'Aktuelle Beiträge'
 
 # The "Walkthroughs" show in home page
 walkthroughs = 'Übersicht' # TODO
