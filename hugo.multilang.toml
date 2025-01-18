@@ -5,7 +5,7 @@
 
 # Support Taxonomies
 [taxonomies]
-    autor = "author"
+    author = "author"
     tag = "tags"
     category = "categories"
 
