@@ -11,6 +11,7 @@
 article.main > div.content * {
     line-height: 22pt;
     color: #e6edf3;
+    max-width: 80ch;
 }
 
 article.main > div.content > :first-child {
