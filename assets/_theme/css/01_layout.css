@@ -10,7 +10,7 @@
         4%: <article> padding
         1px: dummpy
     */
-    --artile_main_width: calc(85% - 3pt - 4% - 1px);
+    --article_main_width: min(calc(85% - 3pt - 4% - 1px), var(article_max_width));
 }
 
 body {
@@ -35,7 +35,7 @@ aside.sidebar {
 }
 
 article {
-    width: var(--artile_main_width);
+    width: var(--article_main_width);
 }
 
 footer {

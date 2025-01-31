@@ -9,8 +9,7 @@
             8vw: <article> padding
             1px: dummpy
         */
-
-        --artile_main_width: calc(100% - 8vw - 1px);
+        --article_main_width: min(calc(100% - 8vw - 1px), 120ch);
     }
 
     /* release the static layout*/
@@ -148,7 +147,7 @@
             1px: dummpy
         */
 
-        --artile_main_width: calc(100% - 12vw - 1px);
+        --article_main_width: calc(100% - 12vw - 1px);
     }
 
     /* Slide sidebar */

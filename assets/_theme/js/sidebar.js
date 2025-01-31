@@ -24,13 +24,13 @@ function isSidebarExpanding(e) {
 
         const originWidth = getComputedStyle(
             document.querySelector("article.main")
-        ).getPropertyValue("--artile_main_width");
+        ).getPropertyValue("--article_main_width");
 
         const newWidth = originWidth.replace(/[\d.]+/, articlePercentage);
 
         document
             .querySelector("article.main")
-            .style.setProperty("--artile_main_width", newWidth);
+            .style.setProperty("--article_main_width", newWidth);
     }
 }
 
@@ -111,7 +111,7 @@ window.addEventListener("load", function () {
 
         // get the currently configured width
         const widthProperty = artileElement.style.getPropertyValue(
-            "--artile_main_width"
+            "--article_main_width"
         );
 
         if (widthProperty) {
@@ -119,16 +119,16 @@ window.addEventListener("load", function () {
             const sidebarPercentage = widthProperty.match(/[\d.]+/)[0];
 
             // reset the width
-            artileElement.style.setProperty("--artile_main_width", "");
+            artileElement.style.setProperty("--article_main_width", "");
 
             // to find out the width set by the stylesheet
             const appliedSWidthStyle = getComputedStyle(artileElement)
-                .getPropertyValue("--artile_main_width")
+                .getPropertyValue("--article_main_width")
                 .replace(/[\d.]+/, sidebarPercentage);
 
             // add the width setting set by the user
             artileElement.style.setProperty(
-                "--artile_main_width",
+                "--article_main_width",
                 appliedSWidthStyle
             );
         }

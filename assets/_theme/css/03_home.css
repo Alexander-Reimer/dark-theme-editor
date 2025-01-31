@@ -22,7 +22,7 @@ article.main:has(> div.home) {
         40vw: <article> padding
         1px: dummpy
     */
-    --artile_main_width: calc(85% - 3pt - 40vw - 1px);
+    --article_main_width: calc(85% - 3pt - 40vw - 1px);
 }
 
 article.main > div.home {
@@ -48,7 +48,7 @@ article.main > div.home > div.recommend > div:where(.left, .right) {
             20vw: <article> padding
             1px: dummpy
         */
-        --artile_main_width: calc(85% - 3pt - 20vw - 1px);
+        --article_main_width: calc(85% - 3pt - 20vw - 1px);
     }
 }
 
@@ -70,7 +70,7 @@ article.main > div.home > div.recommend > div:where(.left, .right) {
             10vw: <article> padding
             1px: dummpy
         */
-        --artile_main_width: calc(85% - 3pt - 10vw - 1px);
+        --article_main_width: calc(85% - 3pt - 10vw - 1px);
     }
 }
 

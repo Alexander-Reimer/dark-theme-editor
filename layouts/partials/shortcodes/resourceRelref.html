@@ -1,0 +1,47 @@
+{{- /*
+    From https://github.com/gohugoio/hugo/issues/12514#issuecomment-2124963936
+    
+    Get the relative permalink of
+  
+    1. a resource belonging to the current page's collection, or
+    2. a global asset (if it does not exist in the current page's collection)
+  
+    given as the first parameter.
+  
+    This might be useful since Hugo v0.123.0, which does not duplicate shared
+    page resources by default with a multilingual, single-host site. For more
+    details, see https://github.com/gohugoio/hugo/issues/12514 and
+    https://gohugo.io/content-management/page-resources/#multilingual.
+  
+    Example:
+  
+      {{< rawhtml >}}
+        [...]
+        <!-- requested file beside the current page or in assets/ -->\
+        <img src="{{< resourceRelref `foobar.png` >}}">
+      {{< /rawhtml >}}
+  */ -}}
+  
+  {{- $path := (.Get 0) }}
+  {{- $resource := default nil -}}
+  
+  {{- /*
+    A way to make relative path like "../../foo.png" possible would be
+    nice but is not supported by this shotcode yet. Ideas welcome to match all
+    page's resource. Hints:
+      .Page == the page context from within a shortcode.
+      $. == root context of the current template(!), not the page.
+  */ -}}
+  {{- with .Page.Resources.Get $path -}}
+      {{-  $resource = . -}}
+  {{- else -}}
+      {{- with resources.Get $path -}}
+          {{- $resource = . -}}
+      {{- end -}}
+  {{- end -}}
+  
+  {{- with $resource -}}
+    {{- .RelPermalink -}}
+  {{- else -}}
+    {{- errorf "[theme] partials/shortcodes/resourceRelref.html: Invalid resource %q in %q (not found in the page's collection nor as global resource in \"assets/\")." $path .Page.File.Path -}}
+  {{- end -}}
