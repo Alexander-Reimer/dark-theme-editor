@@ -11,7 +11,8 @@
 
     <ul class="section-tree">
         {{ range $children }}
-            {{ if .IsNode }}
+            {{ if or (not .Params.eventName) (.Params.show)}}
+            {{ if and (.IsNode) }}
                 <li
                     {{ if .IsAncestor $currentPage }}
                         class="dir opened-dir"
@@ -32,6 +33,7 @@
                         {{ end }}
                     </a>
                 </li>
+            {{ end }}
             {{ end }}
         {{ end }}
     </ul>
