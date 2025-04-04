@@ -1,3 +1,4 @@
+{{ if or (not (or .Params.eventName .Params.eventTitle)) (.Params.show)}}
 <!DOCTYPE html>
 <html {{ with .Site.LanguageCode }}lang="{{ . }}"{{ end }}>
     {{ partial "html_head.html" . }}
@@ -19,3 +20,4 @@
 
     {{ partial "html_footer.html" . }}
 </html>
+{{ end }}

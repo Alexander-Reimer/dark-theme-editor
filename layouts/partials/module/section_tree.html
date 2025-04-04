@@ -11,7 +11,7 @@
 
     <ul class="section-tree">
         {{ range $children }}
-            {{ if or (not .Params.eventName) (.Params.show)}}
+            {{ if or (not (or .Params.eventName .Params.eventTitle)) (.Params.show)}}
             {{ if and (.IsNode) }}
                 <li
                     {{ if .IsAncestor $currentPage }}

@@ -37,7 +37,11 @@
                                 {{ i18n "recent_posts" | title }}
                             </h3>
                             <ul class="recent-posts-list">
-                                {{ range ( $.Site.RegularPages | first ($.Site.Params.homePage.numOfRecentPosts | default 5) ) }}
+                                {{ $normalpages := where $.Site.RegularPages ".Params.eventName" "eq" nil }}
+                                {{ $normalpages := where $normalpages ".Params.eventTitle" "eq" nil}}
+                                {{ $normalpages := where $normalpages ".Params.notinrecent" "ne" true }}
+                                {{ $eventpages := where $.Site.RegularPages ".Params.show" "eq" true }}
+                                {{ range ( (union $normalpages $eventpages) | first ($.Site.Params.homePage.numOfRecentPosts | default 5) ) }}
                                     {{ $page := . }}
                                     <li>
                                         <a
