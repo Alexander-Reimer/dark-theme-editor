@@ -2,15 +2,18 @@
 {{- $lazyLoading := .Page.Site.Params.enableImageLazyLoading | default true -}}
 {{- $dest := .Destination -}}
 
-{{- $isLocal := not (urls.Parse $dest).Scheme -}}
+{{- $dest := replace $dest "%" "%25"}}
+{{- $u := urls.Parse $dest -}}
+{{- $isLocal := not $u.Scheme -}}
 {{- $isPage := and (eq .Page.Kind "page") (not .Page.BundleType) -}}
 {{- $startsWithSlash := hasPrefix $dest "/" -}}
 {{- $startsWithRelative := hasPrefix $dest "../" -}}
 
+{{- $dest := $u.Path -}}
 {{- if and $dest $isLocal -}}
   {{- if $startsWithSlash -}}
     {{/* Images under static directory */}}
-    {{- $dest = (relURL (strings.TrimPrefix "/" $dest)) -}}
+    {{- $dest = (relURL (strings.TrimPrefix "/" ($dest))) -}}
   {{- else if and $isPage (not $startsWithRelative) -}}
     {{/* Images that are sibling to the individual page file */}}
     {{ $dest = (printf "../%s" $dest) }}
@@ -18,13 +21,23 @@
 {{- end -}}
 
 {{/*  https://gohugo.io/content-management/page-resources/#multilingual  */}}
-{{ $res := (.Page.Resources.GetMatch $dest) }}
+{{- $res := (.Page.Resources.GetMatch $dest) -}}
+{{- $res = $res.RelPermalink -}}
+
+{{- $width := "75%" -}}
+{{- $height := "auto" -}}
+{{- if $u.Query.Has "width" -}}
+{{- $width = $u.Query.Get "width" -}}
+{{- end -}}
+{{- if $u.Query.Has "height" -}}
+{{- $height = $u.Query.Get "height" -}}
+{{- end -}}
+
 {{- with .Title -}}
-{{ $res = $res.RelPermalink}}
   <figure>
-    <img src="{{ $res | safeURL }}" title="{{ . }}" alt="{{ $alt }}" {{ if $lazyLoading }}loading="lazy"{{ end }} />
+    <img src="{{ $res | safeURL }}" title="{{ . }}" style="width:{{$width}};height:{{$height}};" alt="{{ $alt }}" {{ if $lazyLoading }}loading="lazy"{{ end }} />
     <figcaption><span class="center-if-single-line">{{ . }}</span></figcaption>
   </figure>
 {{- else -}}
-  <img src="{{ $res | safeURL }}" alt="{{ $alt }}" {{ if $lazyLoading }}loading="lazy"{{ end }} />
+  <img src="{{ $res | safeURL }}" alt="{{ $alt }}" style="width:30px;height:auto;" {{ if $lazyLoading }}loading="lazy"{{ end }} />
 {{- end -}}

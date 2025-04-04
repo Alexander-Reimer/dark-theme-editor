@@ -387,14 +387,16 @@ div.content > img {
     display: block; /* 1 */
     vertical-align: middle; /* 2 */
     max-width: var(--article_main_width);
+    align-content: center;
     height: auto;
 }
 
 .content :where(img):not(:where([class~=not-prose],[class~=not-prose] *)) {
+    display:block;
     margin-left: auto;
     margin-right: auto;
     margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     border-radius: 0.375rem;
 }
 
