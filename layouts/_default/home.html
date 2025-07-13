@@ -44,17 +44,28 @@
                                 {{ range ( (union $normalpages $eventpages) | first ($.Site.Params.homePage.numOfRecentPosts | default 5) ) }}
                                     {{ $page := . }}
                                     <li>
-                                        <a
-                                            href="{{ .Permalink }}"
-                                            title=".{{ .RelPermalink }}"
-                                            >{{ $page.Title }}</a
-                                        >
+                                        <a href="{{ .Permalink }}"
+                                            title=".{{ .RelPermalink }}">
+                                            {{ $page.Title }}
+                                        </a>
                                         {{ with $.Site.Params.homePage.recentPostShowUrl }}
-                                            <span
-                                                class="recent-posts-items-path"
-                                                title=".{{ $page.RelPermalink }}">
-                                                .
-                                                {{ $page.RelPermalink }}
+                                            {{/*  {{- $urlDisplay := $page.RelPermalink -}}  */}}
+                                            {{/*  {{- $urlDisplay = strings.TrimPrefix "/en/" $urlDisplay -}}  */}}
+                                            {{/*  {{- $urlDisplay = strings.TrimPrefix "/de/" $urlDisplay -}}  */}}
+                                            {{- $pathDisplay := $page.Ancestors.Reverse -}}
+                                            <span class="recent-posts-items-path">
+                                                in 
+                                            </span>
+                                            <span class="recent-posts-items-path">
+                                                {{ with index $pathDisplay 1}}
+                                                    <a href="{{ .RelPermalink }}">{{- .LinkTitle -}}</a>
+                                                {{ end }}
+                                            </span>
+                                                {{ range after 2 $pathDisplay -}}
+                                            <span class="recent-posts-items-path">
+                                                    / <a href="{{ .RelPermalink }}">{{- .LinkTitle -}}</a>
+                                            </span>
+                                                {{- end -}}
                                             </span>
                                         {{ end }}
                                     </li>
