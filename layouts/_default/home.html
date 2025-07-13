@@ -23,9 +23,9 @@
                 <div class="left">
                     <div class="start">
                         {{ with $.Site.Params.homePage.siteLongDescription }}
-                            <p class="long-description">
-                                {{ transform.Markdownify . }}
-                            </p>
+                            <div class="long-description">
+                                {{ transform.Emojify . }}
+                            </div>
                         {{ end }}
                     </div>
                     <div class="recent">

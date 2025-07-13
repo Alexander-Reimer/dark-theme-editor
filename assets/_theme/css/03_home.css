@@ -147,10 +147,24 @@ article.main
     > div.recommend
     > div.left
     > div.start
-    > p.long-description {
+    > div.long-description {
     line-height: 1.6em;
     font-size: 90%;
     text-align: justify;
+}
+
+div.long-description a {
+    color: #80cbc4;
+}
+
+article.main
+    > div.home
+    > div.recommend
+    > div.left
+    > div.start
+    > div.long-description
+    > p {
+    margin-bottom: 1.5ex;
 }
 
 /* Recent Posts */
