@@ -15,8 +15,8 @@
     {{/* Images under static directory */}}
     {{- $dest = (relURL (strings.TrimPrefix "/" ($dest))) -}}
   {{- else if and $isPage (not $startsWithRelative) -}}
-    {{/* Images that are sibling to the individual page file */}}
-    {{ $dest = (printf "../%s" $dest) }}
+    {{/* Images that are sibling to the individual page file; TODO */}}
+    {{/*  {{ $dest = (printf "../%s" $dest) }}  */}}
   {{- end -}}
 {{- end -}}
 
