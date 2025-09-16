@@ -368,9 +368,29 @@ article.main>div.content div.footnotes :where(p, p + p) {
     border-radius: 10pt;
 }
 
-.content :where(figure):not(:where([class~=not-prose], [class~=not-prose] *)) figcaption {
-    margin-top: -1rem;
-    margin-bottom: 1rem;
+/**************
+   Figures
+***************/
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.centerinline {
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    align-items: start;
+    gap: 1em;
+}
+
+
+/* .content :where(figure):not(:where([class~=not-prose], [class~=not-prose] *)) figcaption {
     display: block;
     text-align: center;
     font-size: .875rem;
@@ -384,14 +404,14 @@ span.center-if-single-line {
 }
 
 div.content > img {
-    display: block; /* 1 */
-    vertical-align: middle; /* 2 */
+    display: block;
+    vertical-align: middle;
     max-width: var(--article_main_width);
     align-content: center;
     height: auto;
 }
 
-.content :where(img):not(:where([class~=not-prose],[class~=not-prose] *)) {
+.content :where(img,video):not(:where([class~=not-prose],[class~=not-prose] *)) {
     display:block;
     margin-left: auto;
     margin-right: auto;
@@ -402,4 +422,4 @@ div.content > img {
 
 figure {
     margin: 0;
-}
+} */

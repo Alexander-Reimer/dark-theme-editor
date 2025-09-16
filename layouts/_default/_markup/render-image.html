@@ -26,18 +26,34 @@
 
 {{- $width := "75%" -}}
 {{- $height := "auto" -}}
+{{- $centered := true -}}
 {{- if $u.Query.Has "width" -}}
 {{- $width = $u.Query.Get "width" -}}
 {{- end -}}
 {{- if $u.Query.Has "height" -}}
 {{- $height = $u.Query.Get "height" -}}
 {{- end -}}
+{{- if $u.Query.Has "centered" -}}
+{{- $centered = $u.Query.Get "centered" -}}
+{{- end -}}
 
 {{- with .Title -}}
   <figure>
+    {{- if $centered -}}
+    <div class="center">
+    {{- end -}}
     <img src="{{ $res | safeURL }}" title="{{ . }}" style="width:{{$width}};height:{{$height}};" alt="{{ $alt }}" {{ if $lazyLoading }}loading="lazy"{{ end }} />
+    {{- if $centered -}}
+    </div>
+    {{- end -}}
     <figcaption><span class="center-if-single-line">{{ . }}</span></figcaption>
   </figure>
 {{- else -}}
-  <img src="{{ $res | safeURL }}" alt="{{ $alt }}" style="width:30px;height:auto;" {{ if $lazyLoading }}loading="lazy"{{ end }} />
+  {{- if $centered -}}
+  <div class="center">
+  {{- end -}}
+    <img src="{{ $res | safeURL }}" alt="{{ $alt }}" style="width:{{$width}};height:{{$height}};" {{ if $lazyLoading }}loading="lazy"{{ end }} />
+  {{- if $centered -}}
+  </div>
+  {{- end -}}
 {{- end -}}
