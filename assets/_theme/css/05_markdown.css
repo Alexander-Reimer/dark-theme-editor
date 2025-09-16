@@ -390,7 +390,7 @@ article.main>div.content div.footnotes :where(p, p + p) {
 }
 
 
-/* .content :where(figure):not(:where([class~=not-prose], [class~=not-prose] *)) figcaption {
+figcaption {
     display: block;
     text-align: center;
     font-size: .875rem;
@@ -401,8 +401,10 @@ article.main>div.content div.footnotes :where(p, p + p) {
 span.center-if-single-line {
     text-align: left;
     display: inline-block;
-}
+    }
 
+/*
+    
 div.content > img {
     display: block;
     vertical-align: middle;
