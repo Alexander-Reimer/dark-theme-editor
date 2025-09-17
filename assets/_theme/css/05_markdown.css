@@ -14,8 +14,11 @@
     General
 ***************/
 article.main>div.content * {
-    line-height: 22pt;
     color: #e6edf3;
+}
+
+article.main>div.content *:not(.center-if-single-line) {
+    line-height: 22pt;
 }
 
 article.main>div.content> :first-child {
@@ -377,6 +380,7 @@ article.main>div.content div.footnotes :where(p, p + p) {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    align-self: start;
 }
 
 .centerinline {
@@ -385,7 +389,6 @@ article.main>div.content div.footnotes :where(p, p + p) {
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    align-items: start;
     gap: 1em;
 }
 
@@ -395,13 +398,15 @@ figcaption {
     text-align: center;
     font-size: .875rem;
     width: 100%;
-    line-height: normal;
+    margin-top: 1ex;
 }
 
 span.center-if-single-line {
     text-align: left;
     display: inline-block;
-    }
+    line-height: 1.15rem;
+    vertical-align: top;
+}
 
 /*
     
