@@ -13,7 +13,7 @@
 /**************
     General
 ***************/
-article.main>div.content * {
+article.main>div.content * :not(class^="obfuscated"){
     color: #e6edf3;
 }
 

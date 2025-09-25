@@ -13,13 +13,21 @@
                 {{ with $val }}
                     <li>
                         {{ if eq $key "email" }}
-                            <a href="mailto:{{ $val }}" target="_blank">
-                                <i class="bi-envelope"></i>
-                            </a>
+                            {{ $ctx := dict 
+                                "currentstore" site.Store
+                                "text" "<i class=\"bi-envelope\"></i>"
+                                "link" (printf "mailto:%s" $val)
+                                "plaintext" true
+                            }}
+                            {{ partial "obfuscate.html" $ctx }}
                         {{ else }}
-                            <a href="{{ $val }}" target="_blank">
-                                <i class="bi-{{ $key }}"></i>
-                            </a>
+                            {{ $ctx := dict 
+                                "currentstore" site.Store
+                                "text" (printf "<i class=\"bi-%s\"></i>" $key)
+                                "link" $val
+                                "plaintext" true
+                            }}
+                            {{ partial "obfuscate.html" $ctx }}
                         {{ end }}
 
                     </li>
