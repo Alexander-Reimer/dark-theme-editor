@@ -37,7 +37,7 @@
 
                 {{ end }}
 
-                {{ with $.Site.Params.page.showDate }}
+                {{ if and $.Site.Params.page.showDate (and $.Page.Date (not $.Page.Params.hideDate)) }}
                     <div class="date" title="{{ i18n "date"| title }}">
                         <i class="bi bi-calendar3"></i>
                         <time
