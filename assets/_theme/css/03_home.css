@@ -149,7 +149,7 @@ article.main
     > div.start
     > div.long-description {
     line-height: 1.6em;
-    font-size: 90%;
+    /* font-size: 90%; */
     text-align: justify;
 }
 
@@ -176,7 +176,7 @@ article.main
     > ul.recent-posts-list
     > li {
     line-height: 1.6em;
-    font-size: 95%;
+    /* font-size: 95%; */
     margin-left: 3ch;
     text-indent: -3ch;
 }
