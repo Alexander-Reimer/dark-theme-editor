@@ -31,7 +31,7 @@
         overflow: hidden;
     }
 
-    header > div {
+    header>div {
         line-height: 6vh;
     }
 
@@ -68,7 +68,7 @@
     }
 
     /* show the navbar button */
-    article.main > button.sidebar-toggle-btn {
+    article.main>button.sidebar-toggle-btn {
         background-color: #282c34;
         border: 1px solid grey;
         border-radius: 20%;
@@ -83,27 +83,27 @@
         cursor: pointer;
     }
 
-    article.main > button.sidebar-toggle-btn:where(:hover, :active, :focus) {
+    article.main>button.sidebar-toggle-btn:where(:hover, :active, :focus) {
         color: white;
         border-color: white;
         border-width: 2px;
     }
 
     /* move the position of article information */
-    article.main > div.title {
+    article.main>div.title {
         flex-direction: column;
     }
 
-    article.main > div.title > div.author-date-readtime {
+    article.main>div.title>div.author-date-readtime {
         flex-direction: row;
     }
 
-    article.main > div.title > div.author-date-readtime > div {
+    article.main>div.title>div.author-date-readtime>div {
         padding-top: 0;
         padding-right: 2em;
     }
 
-    article.main > div.article-meta {
+    article.main>div.article-meta {
         margin-top: 0.2em;
     }
 
@@ -115,11 +115,11 @@
         padding-bottom: 6px;
     }
 
-    footer > div > ul {
+    footer>div>ul {
         flex-wrap: wrap;
     }
 
-    footer > div.footer-right {
+    footer>div.footer-right {
         min-width: 60%;
         max-width: 100%;
     }
@@ -130,6 +130,7 @@
 }
 
 @media only screen and (max-width: 700px) {
+
     /* Slide sidebar */
     main:has(article.main > button.sidebar-toggle-btn[aria-expanded="true"]) {
         width: 150%;
@@ -174,12 +175,12 @@
     }
 
     /* move the position of article information */
-    article.main > div.title > div.author-date-readtime {
+    article.main>div.title>div.author-date-readtime {
         align-items: flex-start;
         flex-direction: column;
     }
 
-    article.main > div.title > div.author-date-readtime > div {
+    article.main>div.title>div.author-date-readtime>div {
         padding-top: 1em;
     }
 
